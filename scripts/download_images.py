@@ -153,13 +153,13 @@ def download_image(row):
                 out_file.write(response.content)
 
             # Resize image if it is too big
-            call('mogrify -resize "800x800>" {}'.format(fname))
+            #call('mogrify -resize "800x800>" {}'.format(fname))
 
             # Use the following if mogrify doesn't exist or can't be found
-            # img = Image.open(fname)
-            # if max(img.size) > 800:
-            #     img = img.resize((min(img.width, 800), min(img.height, 800)))
-            #     img.save(fname)
+            img = Image.open(fname)
+            if max(img.size) > 800:
+                img = img.resize((min(img.width, 800), min(img.height, 800)))
+                img.save(fname)
 
 
             row['mimetype'] = magic.from_file(fname, mime=True)
