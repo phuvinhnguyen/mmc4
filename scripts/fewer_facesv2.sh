@@ -17,7 +17,7 @@ DESTINATION_FOLDER="$1"
 mkdir -p "$DESTINATION_FOLDER"
 
 # Loop through the shard numbers and download and unzip the files
-for SHARD in {0..23098}; do
+for SHARD in {0..0}; do #0..23098
   URL="${URL_BASE}${SHARD}_v2.jsonl.zip"
   ZIP_FILE="${DESTINATION_FOLDER}/shard_${SHARD}.zip"
   echo "Downloading shard $SHARD from $URL..."
